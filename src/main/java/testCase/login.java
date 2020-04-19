@@ -1,6 +1,7 @@
 package testCase;
 
 import base.baseClass;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -19,8 +20,12 @@ public class login extends baseClass {
         loginPage login=new loginPage();
         login.login();
         String text = login.getElementOfLoginPage();
-
         Assert.assertEquals(text,"Welcome","登录成功");
+
+
+
+
+
 
     }
 

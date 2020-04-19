@@ -45,7 +45,11 @@ public class loginPage extends baseClass {
         driver.findElement(userName).sendKeys(loginUserName);
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(password));
         driver.findElement(password).sendKeys(loginPassword);
+
+        System.out.println(driver.getPageSource()+"前面");
         driver.findElement(loginButton).click();
+
+
         return"success";
 
     }

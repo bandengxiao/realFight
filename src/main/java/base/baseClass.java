@@ -12,16 +12,20 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Logger;
+
 
 public class baseClass {
 
     protected WebDriver driver=new ChromeDriver();
     protected WebDriverWait wait;
 
+
     public void prepare(String key){
         //这应该做成可配置的
         String url= null;
         try {
+
             url = getConfig.getValueByKey(key);
             System.setProperty("webdriver.chrome.driver", "C:\\Users\\86157\\Desktop\\GoogleDriver\\chromedriver.exe");
             wait=new WebDriverWait(this.driver,10,1);
@@ -48,7 +52,6 @@ public class baseClass {
         String now = format.format(date);
         try {
             String name=this.getClass().getSimpleName();
-            System.out.println("name是    "+name);
             path= getConfig.getValueByKey("ScreenShutPath")+"\\"+name+".png";
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,9 +73,18 @@ public class baseClass {
         }
 
 
+
     }
 
+    public static void timeOut(int time){
 
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
 
