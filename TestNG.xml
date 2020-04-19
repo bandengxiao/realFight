@@ -1,0 +1,41 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SuiteName" verbose="1"  time-out="2000">
+
+    <test name="TestName"  enabled="true">
+        <classes>
+            <class name="testCase.login">
+                <methods>
+                    <include name="one"/>
+                    <include name="two"/>
+                    <include name="three"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="TestName2" skipfailedinvocationcounts="true"  enabled="false">
+
+        <groups>
+            <define name="one">
+                <include name="one"/>
+                <include name="three"/>
+            </define>
+            <define name="two">
+                <include name="two"/>
+            </define>
+
+            <run>
+                <include name="one"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name = "testPackage.*"/>
+        </packages>
+
+
+    </test>
+
+
+
+</suite>
